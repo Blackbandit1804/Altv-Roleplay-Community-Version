@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Altv-Roleplay": {
+      "commandName": "Executable",
+      "executablePath": "E:\\Git-Hub\\Altv-Roleplay-German\\Gameserver\\altv-server.exe",
+      "workingDirectory": "E:\\Git-Hub\\Altv-Roleplay-German\\Gameserver"
+    }
+  }
+}
