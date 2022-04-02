@@ -1,0 +1,47 @@
+[16:26:08] alt:V Server 9.6 (release)
+[16:26:08] Starting Dev Server on 0.0.0.0:7788
+[16:26:08] Loading resource [altv_chat]
+[16:26:08] Loaded resource [altv_chat]
+[16:26:08] Loading resource SaltyClient
+[16:26:09] [SaltyChat] New status: enabled. Version: 1.2.1. Server-ID: TatSJyvW/DVtQns+y+zxY5SgnH0=
+[16:26:09] Loaded resource SaltyClient
+[16:26:09] Loading resource [altv_flatbedscript]
+[16:26:09] Loaded resource [altv_flatbedscript]
+[16:26:09] Loading resource [altv_intproxies]
+[16:26:09][Error] Could not open resource.cfg
+[16:26:09][Error] Failed to load resource [altv_intproxies]
+[16:26:09] Loading resource [altv_maps]
+[16:26:11] Loaded resource [altv_maps]
+[16:26:11] Loading resource [altv_mp]
+[16:26:11][Error] Could not open resource.cfg
+[16:26:11][Error] Failed to load resource [altv_mp]
+[16:26:11] Loading resource [altv_maps_gabz]
+[16:26:11] Loaded resource [altv_maps_gabz]
+[16:26:11] Loading resource [altv_minimap]
+[16:26:11] Loaded resource [altv_minimap]
+[16:26:11] Loading resource [altv_minimap_js]
+[16:26:11] Loaded resource [altv_minimap_js]
+[16:26:11] Loading resource [altv_mrpdloader]
+[16:26:11] Loaded resource [altv_mrpdloader]
+[16:26:11] Loading resource weather
+[16:26:11] Loaded resource weather
+[16:26:11] Loading resource [altv_els]
+[16:26:11] Loaded resource [altv_els]
+[16:26:11] Loading resource [altv_es-blip]
+[16:26:11] Loaded resource [altv_es-blip]
+[16:26:11] Loading resource [altv_es-helptext]
+[16:26:11] Loaded resource [altv_es-helptext]
+[16:26:11] Loading resource [altv_es-marker]
+[16:26:11] Loaded resource [altv_es-marker]
+[16:26:11] Loading resource [altv_es-object]
+[16:26:11] Loaded resource [altv_es-object]
+[16:26:11] Loading resource [altv_es-ped]
+[16:26:11] Loaded resource [altv_es-ped]
+[16:26:11] Loading resource [altv_es-streamer-text]
+[16:26:11] Loaded resource [altv_es-streamer-text]
+[16:26:11] Loading resource paradise-club
+[16:26:12] Loaded resource paradise-club
+[16:26:12] Loading resource mplibertycity_assets
+[16:26:12][Error] Could not open resource.cfg
+[16:26:12][Error] Failed to load resource mplibertycity_assets
+[16:26:12] Loading resource roleplay
