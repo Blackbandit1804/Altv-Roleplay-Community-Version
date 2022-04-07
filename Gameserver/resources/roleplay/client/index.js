@@ -1,4 +1,5 @@
 import * as adminmenu from '/client/adminmenu.js';
+import * as misc from '/client/misc.js';
 import * as clothesstore from '/client/clothesstore.js';
 import * as fingerpoint from '/client/fingerpoint.js';
 import * as cayoperico from '/client/cayoperico.js';
