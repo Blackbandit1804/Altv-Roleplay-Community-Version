@@ -62,7 +62,7 @@ namespace Altv_Roleplay.Handler
                             var text = "";
                             if (info == "on") text = " hat **NoClip** angemacht.";
                             else text = " hat **NoClip** ausgemacht.";
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
                             break;
                         case "unsichtbar":
                             if (player.Visible) player.Visible = false;
@@ -70,32 +70,32 @@ namespace Altv_Roleplay.Handler
 
                             if (info == "on") text = " hat sich **unsichtbar** gemacht.";
                             else text = " hat sich **sichtbar** gemacht.";
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
                             break;
                         case "adminoutfit":
                             SetAdminClothes(player, info);
 
                             if (info == "on") text = " hat sich das **Adminoutfit angezogen**.";
                             else text = " hat sich das **Adminoutfit angezogen**.";
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
                             break;
                         case "godmode":
                             player.EmitLocked("Client:AdminMenu:Godmode", info);
 
                             if (info == "on") text = " hat den **Godmode** angemacht.";
                             else text = " hat den **Godmode** ausgemacht.";
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
                             break;
                         case "heilen":
                             player.Health = 200;
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + "hat sich * *geheilt * *.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + "hat sich * *geheilt * *.");
                             break;
                         case "wiederbeleben":
                             DeathHandler.revive(player);
                             Alt.Emit("SaltyChat:SetPlayerAlive", player, true);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + "hat sich **wiederbelebt**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + "hat sich **wiederbelebt**.");
                             break;
                         // ONLINE
                         case "spieler_kicken":
@@ -103,12 +103,12 @@ namespace Altv_Roleplay.Handler
                             if (string.IsNullOrWhiteSpace(inputvalue))
                             {
                                 kickedPlayer.kickWithMessage("Du wurdest von einem Teammitglied gekickt.");
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayer.GetCharacterMetaId()) + " **gekickt**.");
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayer.GetCharacterMetaId()) + " **gekickt**.");
                             }
                             else
                             {
                                 kickedPlayer.kickWithMessage("Du wurdest von einem Teammitglied gekickt. Grund: " + inputvalue);
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayer.GetCharacterMetaId()) + " **gekickt**. Grund: " + inputvalue);
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayer.GetCharacterMetaId()) + " **gekickt**. Grund: " + inputvalue);
                             }
                             break;
                         case "spieler_bannen":
@@ -117,20 +117,20 @@ namespace Altv_Roleplay.Handler
                             {
                                 User.SetPlayerBanned(Characters.GetCharacterAccountId((int)bannedPlayer.GetCharacterMetaId()), true, $"Gebannt von {Characters.GetCharacterName(User.GetPlayerOnline(player))}");
                                 if (bannedPlayer != null) bannedPlayer.Kick("Du wurdest von einem Teammitglied gebannt.");
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)bannedPlayer.GetCharacterMetaId()) + " **gebannt**.");
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)bannedPlayer.GetCharacterMetaId()) + " **gebannt**.");
                             }
                             else
                             {
                                 User.SetPlayerBanned(Characters.GetCharacterAccountId((int)bannedPlayer.GetCharacterMetaId()), true, $"Gebannt von {Characters.GetCharacterName(User.GetPlayerOnline(player))}. Grund: " + inputvalue);
                                 if (bannedPlayer != null) bannedPlayer.Kick("Du wurdest von einem Teammitglied gebannt. Grund: " + inputvalue);
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)bannedPlayer.GetCharacterMetaId()) + " **gebannt**. Grund: " + inputvalue);
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)bannedPlayer.GetCharacterMetaId()) + " **gebannt**. Grund: " + inputvalue);
                             }
                             break;
                         case "spieler_einfrieren":
                             var kickedPlayerr = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
                             Alt.EmitAllClients("Client:AdminMenu:SetFreezed", kickedPlayerr, info);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayerr.GetCharacterMetaId()) + " **eingefroren**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)kickedPlayerr.GetCharacterMetaId()) + " **eingefroren**.");
                             break;
                         case "spieler_spectaten":
                             var spectatedPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
@@ -138,32 +138,32 @@ namespace Altv_Roleplay.Handler
 
                             if (info == "on") { text = " **spectated** nun " + Characters.GetCharacterName((int)spectatedPlayer.GetCharacterMetaId()); Alt.EmitAllClients("Client:AdminMenu:SetInvisible", player, "on"); }
                             else { text = " hat aufgehört, " + Characters.GetCharacterName((int)spectatedPlayer.GetCharacterMetaId()) + " **spectaten**."; Alt.EmitAllClients("Client:AdminMenu:SetInvisible", player, "off"); }
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + text);
                             break;
                         case "spieler_heilen":
                             var HealedPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
                             HealedPlayer.Health = 200;
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich zu " + Characters.GetCharacterName((int)HealedPlayer.GetCharacterMetaId()) + " **geheilt**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich zu " + Characters.GetCharacterName((int)HealedPlayer.GetCharacterMetaId()) + " **geheilt**.");
                             break;
                         case "spieler_wiederbeleben":
                             var RevivedPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
                             DeathHandler.revive(RevivedPlayer);
                             Alt.Emit("SaltyChat:SetPlayerAlive", RevivedPlayer, true);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)RevivedPlayer.GetCharacterMetaId()) + " zu sich **wiederbelebt**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)RevivedPlayer.GetCharacterMetaId()) + " zu sich **wiederbelebt**.");
                             break;
                         case "tp_zu_spieler":
                             var TeleportToPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
                             player.Position = new Position(TeleportToPlayer.Position.X, TeleportToPlayer.Position.Y, TeleportToPlayer.Position.Z);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich zu " + Characters.GetCharacterName((int)TeleportToPlayer.GetCharacterMetaId()) + " **teleportiert**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich zu " + Characters.GetCharacterName((int)TeleportToPlayer.GetCharacterMetaId()) + " **teleportiert**.");
                             break;
                         case "spieler_zu_mir_tp":
                             var TeleportPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
                             TeleportPlayer.Position = new Position(player.Position.X, player.Position.Y, player.Position.Z);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)TeleportPlayer.GetCharacterMetaId()) + " zu sich **teleportiert**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)TeleportPlayer.GetCharacterMetaId()) + " zu sich **teleportiert**.");
                             break;
                         case "item_geben":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
@@ -171,7 +171,7 @@ namespace Altv_Roleplay.Handler
                             var GiveItemPlayer = Alt.GetAllPlayers().ToList().FirstOrDefault(x => User.GetPlayerUsername(Characters.GetCharacterAccountId((int)x.GetCharacterMetaId())) == addinfo);
 
                             CharactersInventory.AddCharacterItem((int)GiveItemPlayer.GetCharacterMetaId(), inputvalue, 1, "inventory");
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)GiveItemPlayer.GetCharacterMetaId()) + " das **Item " + inputvalue + " gegeben**.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)GiveItemPlayer.GetCharacterMetaId()) + " das **Item " + inputvalue + " gegeben**.");
                             break;
                         case "adminlevel_geben":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
@@ -180,7 +180,7 @@ namespace Altv_Roleplay.Handler
                             if (player.AdminLevel() <= newinputvaluea) { HUDHandler.SendNotification(player, 4, 5000, $"Du darfst dieses Adminlevel nicht vergeben"); break; }
                             User.SetPlayerAdminLevel(Characters.GetCharacterAccountId((int)GiveAdminPlayer.GetCharacterMetaId()), newinputvaluea);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)GiveAdminPlayer.GetCharacterMetaId()) + " **Adminlevel " + newinputvaluea + "** zugewiesen.");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat " + Characters.GetCharacterName((int)GiveAdminPlayer.GetCharacterMetaId()) + " **Adminlevel " + newinputvaluea + "** zugewiesen.");
                             break;
                         // MISC
                         case "zum_wegpunkt":
@@ -201,7 +201,7 @@ namespace Altv_Roleplay.Handler
                                 veh.EngineOn = true;
                                 veh.LockState = VehicleLockState.Unlocked;
                                 player.Emit("Client:Utilities:setIntoVehicle", veh);
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich das **Fahrzeug " + inputvalue + " gespawnt**");
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich das **Fahrzeug " + inputvalue + " gespawnt**");
                                 break;
                             }
                             catch (Exception)
@@ -213,13 +213,13 @@ namespace Altv_Roleplay.Handler
                             if (player.Vehicle == null || !player.Vehicle.Exists) break;
                             ServerVehicles.SetVehicleEngineHealthy(player.Vehicle, true);
                             Alt.EmitAllClients("Client:Utilities:repairVehicle", player.Vehicle);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Fahrzeug repariert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Fahrzeug repariert**");
                             break;
                         case "fahrzeug_löschen":
                             if (player.Vehicle == null || !player.Vehicle.Exists) break;
                             player.Vehicle.Remove();
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Fahrzeug gelöscht**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Fahrzeug gelöscht**");
                             break;
                         case "fahrzeugmotor_an_ausschalten":
                             if (player.Vehicle == null || !player.Vehicle.Exists) break;
@@ -233,74 +233,74 @@ namespace Altv_Roleplay.Handler
 
                             Characters.SetCharacterCorrectClothes(player);
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Outfit zurückgesetzt**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Outfit zurückgesetzt**");
                             break;
                         case "a_c_boar":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_cat_01":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_chimp":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_chop":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_cow":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_coyote":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_crow":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_husky":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_mtlion":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_poodle":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_pug":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_rabbit_01":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_retriever":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_shepherd":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "a_c_westy":
                             player.Model = Alt.Hash(action);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + action + " geändert**");
                             break;
                         case "other":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
                             try
                             {
                                 player.Model = Alt.Hash(inputvalue);
-                                //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + inputvalue + " geändert**");
+                                SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sein **Model zu " + inputvalue + " geändert**");
                                 break;
                             }
                             catch (Exception)
@@ -316,7 +316,7 @@ namespace Altv_Roleplay.Handler
                                 if (client == null || !client.Exists) continue;
                                 HUDHandler.SendNotification(client, 4, 5000, inputvalue);
                             }
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat eine Ankündigung gemacht: **" + inputvalue + "**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat eine Ankündigung gemacht: **" + inputvalue + "**");
                             break;
                         case "whitelist":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
@@ -325,7 +325,7 @@ namespace Altv_Roleplay.Handler
                             User.SetPlayerWhitelistState(User.GetPlayerAccountIdByUsername(inputvalue), true);
                             HUDHandler.SendNotification(player, 1, 3000, inputvalue + " wurde erfolgreich gewhitelisted");
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat **" + inputvalue + " gewhitelistet**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat **" + inputvalue + " gewhitelistet**");
                             break;
                         case "fahrzeug_einparken":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
@@ -334,7 +334,7 @@ namespace Altv_Roleplay.Handler
                             ServerVehicles.SetVehicleInGarage(vehicle, true, 1);
                             HUDHandler.SendNotification(player, 1, 5000, $"Fahrzeug mit dem Kennzeichen {inputvalue} in die Pillbox Garage eingeparkt");
 
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat das **Fahrzeug mit dem Kennzeichen " + inputvalue + " eingeparkt**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat das **Fahrzeug mit dem Kennzeichen " + inputvalue + " eingeparkt**");
                             break;
                         case "alle_fahrzeuge_einparken":
                             int count = 0;
@@ -348,7 +348,7 @@ namespace Altv_Roleplay.Handler
                             }
 
                             HUDHandler.SendNotification(player, 1, 3500, $"{count} Fahrzeuge eingeparkt");
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat ** alle Fahrzeuge (" + count + ") eingeparkt**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat ** alle Fahrzeuge (" + count + ") eingeparkt**");
                             break;
                         case "fahrzeuginhaber_finden":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
@@ -357,21 +357,21 @@ namespace Altv_Roleplay.Handler
                             var ownerId = ServerVehicles.GetVehicleOwner(fvehicle);
                             var findvehownermsg = $"AccId: " + User.GetPlayerByCharId(ownerId).playerid + " | CharId: " + ownerId + " | Benutzername: " + User.GetPlayerUsername(User.GetPlayerByCharId(ownerId).playerid) + " | Name: " + Characters.GetCharacterName(ownerId);
                             HUDHandler.SendNotification(player, 1, 10000, findvehownermsg);
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " nach dem Besitzer des Fahrzeuges mit dem Kennzeichen " + inputvalue + " gesucht.\nResultat: **" + findvehownermsg + "**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " nach dem Besitzer des Fahrzeuges mit dem Kennzeichen " + inputvalue + " gesucht.\nResultat: **" + findvehownermsg + "**");
                             break;
                         case "hardwareid_zurücksetzen":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
                             if (!User.ExistPlayerName(inputvalue)) { HUDHandler.SendNotification(player, 4, 3000, $"Benutzername {inputvalue} wurde nicht gefunden"); break; }
                             User.ResetPlayerHardwareID(User.GetPlayerAccountIdByUsername(inputvalue));
                             HUDHandler.SendNotification(player, 1, 3000, "Hardware-ID von " + inputvalue + " wurde erfolgreich zurückgesetzt");
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat die **Hardware-ID von " + inputvalue + " wurde zurückgesetzt**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat die **Hardware-ID von " + inputvalue + " wurde zurückgesetzt**");
                             break;
                         case "socialclubid_zurücksetzen":
                             if (string.IsNullOrWhiteSpace(inputvalue)) break;
                             if (!User.ExistPlayerName(inputvalue)) { HUDHandler.SendNotification(player, 4, 3000, $"Benutzername {inputvalue} wurde nicht gefunden"); break; }
                             User.ResetPlayerSocialID(User.GetPlayerAccountIdByUsername(inputvalue));
                             HUDHandler.SendNotification(player, 1, 3000, "Socialclub-ID von " + inputvalue + " wurde erfolgreich zurückgesetzt");
-                            //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat die **Socialclub-ID von " + inputvalue + " wurde zurückgesetzt**");
+                            SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat die **Socialclub-ID von " + inputvalue + " wurde zurückgesetzt**");
                             break;
                         // DEFAULT
                         default:
@@ -384,6 +384,11 @@ namespace Altv_Roleplay.Handler
             {
                 Alt.Log($"{e}");
             }
+        }
+
+        private void SendEmbed(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
         }
 
         [AsyncClientEvent("Server:AdminMenu:RequestAllOnlinePlayers")]
@@ -433,7 +438,7 @@ namespace Altv_Roleplay.Handler
                     try
                     {
                         player.Position = new Position(x, y, z);
-                        //.SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich **zum Wegpunkt teleportiert**.");
+                        SendEmbed("adminmenu", "Adminmenu Logs", Characters.GetCharacterName((int)player.GetCharacterMetaId()) + " hat sich **zum Wegpunkt teleportiert**.");
                     }
                     catch (Exception e)
                     {

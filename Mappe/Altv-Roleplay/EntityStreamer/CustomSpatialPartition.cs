@@ -27,17 +27,6 @@ namespace Altv_Roleplay.EntityStreamer
 			entities.Remove(entity);
 		}
 
-		public override void UpdateEntityPosition(IEntity entity, in Vector3 newPosition)
-		{
-		}
-
-		public override void UpdateEntityRange(IEntity entity, uint range)
-		{
-		}
-
-		public override void UpdateEntityDimension(IEntity entity, int dimension)
-		{
-		}
 
 		private static bool CanSeeOtherDimension(int dimension, int otherDimension)
 		{
@@ -51,5 +40,20 @@ namespace Altv_Roleplay.EntityStreamer
 		{
 			return entities.Where(entity => CanSeeOtherDimension(dimension, entity.Dimension)).ToList();
 		}
-	}
+
+        public override void UpdateEntityPosition(IEntity entity, in Vector3 oldPosition, in Vector3 newPosition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void UpdateEntityRange(IEntity entity, uint oldRange, uint newRange)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void UpdateEntityDimension(IEntity entity, int oldDimension, int newDimension)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

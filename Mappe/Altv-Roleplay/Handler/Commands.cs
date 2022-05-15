@@ -139,10 +139,15 @@ namespace Altv_Roleplay.Handler
             {
                 if (client == null || !client.Exists) continue;
                 HUDHandler.SendNotification((IPlayer)client, 4, 5000, $"[SUPPORT] {Characters.GetCharacterName((int)player.GetCharacterMetaId())} (ID: {(int)player.GetCharacterMetaId()}) benötigt Support: {msg}");
-                //.SendEmbed("Command", "Command",$" {Characters.GetCharacterName((int)player.GetCharacterMetaId())}  {msg}");
+                SendEmbed("Command", "Command",$" {Characters.GetCharacterName((int)player.GetCharacterMetaId())}  {msg}");
             }
 /*            HelperMethods.send//("LSPD USERMAIL", $"{player.accountName} hast eine LSPD Rundmail geschickt: {msg}", "red");
 */        }
+
+        private void SendEmbed(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
+        }
 
         [Command("id")]
         public static void CMD_ID(IPlayer player)
@@ -317,7 +322,7 @@ namespace Altv_Roleplay.Handler
                 var targetP = Alt.GetAllPlayers().ToList().FirstOrDefault(x => x != null && x.Exists && User.GetPlayerOnline(x) == charId);
                 if (targetP == null) return;
                 targetP.Kick("");
-                HUDHandler.SendNotification(player, 4, 5000, $"Spieler mit Char-ID {charId} Erfolgreich gekickt.");
+                HUDHandler.SendNotification(player, 4, 5000, $"Spieler mit der Char-ID {charId} wurde Erfolgreich gekickt.");
             }
             catch (Exception e)
             {
@@ -567,7 +572,7 @@ namespace Altv_Roleplay.Handler
                 var vehicle = Alt.GetAllVehicles().ToList().FirstOrDefault(x => x != null && x.Exists && x.HasVehicleId() && (int)x.GetVehicleId() == vehId);
                 if (vehicle == null) return;
                 ServerVehicles.SetVehicleInGarage(vehicle, true, 25);
-                HUDHandler.SendNotification(player, 4, 5000, $"Fahrzeug {vehId} in Garage 1(Pillbox) eingeparkt");
+                HUDHandler.SendNotification(player, 4, 5000, $"Fahrzeug {vehId} in die Pillbox Garage eingeparkt");
             }
             catch (Exception e)
             {
@@ -618,7 +623,7 @@ namespace Altv_Roleplay.Handler
             }
         }
 
-/*        [Command("whitelist")]
+       [Command("whitelist")]
         public void WhitelistCMD(IPlayer player, int targetAccId)
         {
             try
@@ -636,7 +641,7 @@ namespace Altv_Roleplay.Handler
             }
         }
 
-*/        [Command("revive")]
+        [Command("revive")]
         public void ReviveTargetCMD(IPlayer player, int targetId)
         {
             if (player == null || !player.Exists) return;

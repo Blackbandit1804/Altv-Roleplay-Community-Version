@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\Altv-Roleplay\\Altv-Roleplay.csproj": {}
+    "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\Altv-Roleplay\\Altv-Roleplay.csproj": {}
   },
   "projects": {
-    "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\Altv-Roleplay\\Altv-Roleplay.csproj": {
+    "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\Altv-Roleplay\\Altv-Roleplay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\Altv-Roleplay\\Altv-Roleplay.csproj",
+        "projectUniqueName": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\Altv-Roleplay\\Altv-Roleplay.csproj",
         "projectName": "Altv-Roleplay",
-        "projectPath": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\Altv-Roleplay\\Altv-Roleplay.csproj",
+        "projectPath": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\Altv-Roleplay\\Altv-Roleplay.csproj",
         "packagesPath": "C:\\Users\\mauke\\.nuget\\packages\\",
-        "outputPath": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\Altv-Roleplay\\obj\\",
+        "outputPath": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\Altv-Roleplay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "E:\\Programme\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Development\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\mauke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,7 +50,7 @@
             },
             "AltV.Net.EntitySync": {
               "target": "Package",
-              "version": "[1.13.0, )"
+              "version": "[1.18.0, )"
             },
             "AltV.Net.EntitySync.ServerEvent": {
               "target": "Package",
@@ -66,21 +66,21 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.5, )"
             },
             "MySql.Data": {
               "target": "Package",
-              "version": "[8.0.28, )"
+              "version": "[8.0.29, )"
             },
             "MySql.Data.EntityFramework": {
               "target": "Package",
-              "version": "[8.0.28, )"
+              "version": "[8.0.29, )"
             },
             "MySqlConnector": {
               "target": "Package",
@@ -114,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

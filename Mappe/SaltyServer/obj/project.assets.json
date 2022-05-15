@@ -24,27 +24,6 @@
           "lib/net6.0/AltV.Net.Async.dll": {}
         }
       },
-      "AltV.Net.Client/9.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/AltV.Net.Client.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/AltV.Net.Client.dll": {}
-        }
-      },
-      "AltV.Net.EntitySync/1.13.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Threading.Channels": "5.0.0"
-        },
-        "compile": {
-          "lib/net5.0/AltV.Net.EntitySync.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/AltV.Net.EntitySync.dll": {}
-        }
-      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -91,34 +70,6 @@
         "altv.net.async.nuspec",
         "icon.png",
         "lib/net6.0/AltV.Net.Async.dll",
-        "license.txt"
-      ]
-    },
-    "AltV.Net.Client/9.0.4": {
-      "sha512": "EPpvG9LCCymFDs0tXn0lKTrM2FOYhroLn9TS9w/K95B0uGsRttmrPDEoD+cocC6hzkZbKfSoG4w8zJiGRR0gRQ==",
-      "type": "package",
-      "path": "altv.net.client/9.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "altv.net.client.9.0.4.nupkg.sha512",
-        "altv.net.client.nuspec",
-        "icon.png",
-        "lib/net5.0/AltV.Net.Client.dll",
-        "license.txt"
-      ]
-    },
-    "AltV.Net.EntitySync/1.13.0": {
-      "sha512": "b0DkilzzJqXd0PTI7h9f/k5OVDKn60h95NU3z13y3Nz+pxlgS2V1lSE8MbVwqkdFr2Jl+3dZUwRAOs9Ic77Sbg==",
-      "type": "package",
-      "path": "altv.net.entitysync/1.13.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "altv.net.entitysync.1.13.0.nupkg.sha512",
-        "altv.net.entitysync.nuspec",
-        "icon.png",
-        "lib/net5.0/AltV.Net.EntitySync.dll",
         "license.txt"
       ]
     },
@@ -178,28 +129,25 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AltV.Net >= 9.0.4",
       "AltV.Net.Async >= 9.0.4",
-      "AltV.Net.Client >= 9.0.4",
-      "AltV.Net.EntitySync >= 1.13.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
   "packageFolders": {
     "C:\\Users\\mauke\\.nuget\\packages\\": {},
-    "E:\\Programme\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "D:\\Development\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\SaltyServer\\SaltyChat.Server.csproj",
+      "projectUniqueName": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\SaltyServer\\SaltyChat.Server.csproj",
       "projectName": "SaltyChat.Server",
-      "projectPath": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\SaltyServer\\SaltyChat.Server.csproj",
+      "projectPath": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\SaltyServer\\SaltyChat.Server.csproj",
       "packagesPath": "C:\\Users\\mauke\\.nuget\\packages\\",
-      "outputPath": "E:\\Git-Hub\\Altv-Roleplay-German\\Altv-Roleplay\\SaltyServer\\obj\\",
+      "outputPath": "D:\\Development\\GitHub\\Virtual-Roleplay\\Mappe\\SaltyServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Programme\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Development\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\mauke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -229,21 +177,9 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "AltV.Net": {
-            "target": "Package",
-            "version": "[9.0.4, )"
-          },
           "AltV.Net.Async": {
             "target": "Package",
             "version": "[9.0.4, )"
-          },
-          "AltV.Net.Client": {
-            "target": "Package",
-            "version": "[9.0.4, )"
-          },
-          "AltV.Net.EntitySync": {
-            "target": "Package",
-            "version": "[1.13.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -265,7 +201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
