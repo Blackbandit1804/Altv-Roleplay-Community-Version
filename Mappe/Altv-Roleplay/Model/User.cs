@@ -27,10 +27,10 @@ namespace Altv_Roleplay.Model
                 password = BCrypt.Net.BCrypt.HashPassword(password), 
                 hardwareId = 0,
                 Online = 0,
-                whitelisted = false,
+                whitelisted = 1,
                 ban = false,
                 banReason =  "",
-                adminLevel = 0
+                adminLevel = 10
             };
 
             try
